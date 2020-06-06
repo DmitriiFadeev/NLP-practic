@@ -178,6 +178,7 @@ header::before{
                 text-align: center;
                 width: 185px;
                 height: 185px;
+                border-radius: 50%;
             }
             .help__title{
                 word-wrap: break-word;
@@ -299,6 +300,7 @@ header::before{
                 }
                 .block-video__video{
                     position: relative;
+                    width: 400px;
                     .video__media{
                         iframe{
                             top: 0;
@@ -903,7 +905,7 @@ header::before{
             padding-bottom: 50px;
             .video-block__list{
                 position: relative;
-                padding: 0 20px;
+                padding: 0 41px;
                 .slick-arrow{
                     position: absolute;
                     top: 50%;
@@ -912,7 +914,7 @@ header::before{
                     width: 30px;
                     height: 30px;
                     border: none;
-                    margin: -40px 0 0 0;
+                    margin: -50px 0 0 0;
                 }
                 button.slick-prev{
                     left: 0;
@@ -946,11 +948,6 @@ header::before{
             }
             .slider-item{
                 text-align: center;
-                iframe{
-                    width: 332px;
-                    height: 180px;
-                    border: 0px;
-                }
             }
         }
     }
@@ -1090,7 +1087,7 @@ footer{
     width: 100%;
 }
 
-.youtube img {width: 100%; top: -16.82%; left: 0; opacity: 0.7;}
+.youtube img {width: 105%; top: -16.82%; left: 0; opacity: 0.7; }
 
 .youtube .play-button {
     width: 90px;
