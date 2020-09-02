@@ -1,4 +1,8 @@
+
 @media screen and (max-width:1100px){
+    body.lock{
+        overflow: hidden;
+    }
     header{
         width: 100%;
         background-image: url(../img/2.jpg);
@@ -6,20 +10,66 @@
         background-size: cover;
         position: relative;
         .header-top{
-            display: none;
-            .menu ul{
-                a{
-                    font-size: 13px;
+            .menu__burger{
+                display: block;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                z-index: 5555;
+                width: 50px;
+                height: 50px;
+                img{
+                    width: 100%;
+                    height: 100%;
                 }
+            }
+            .logo{
+                display: none;
+                top: 0;
+                left: 10px;
+                z-index: 5;
+                width: 50px;
+                height: 50px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .menu{
+                z-index: 6;
+                width: 50px;
+                height: 50px;
+                .menu-top{
+                    // display: none;
+                    flex-direction: column;
+                    background-color: red;
+                    position: fixed;
+                    top: -110%;
+                    left: 0;
+                    height: 100%;
+                    width: 110%;
+                    li{
+                        padding-top: 30px;
+                        a{
+                            font-size: 30px;
+                        }
+                    }
+                }
+                .menu-top.active{
+                    top: 0;
+                }
+            }
+            .menu.sticky{
+                background: none;
             }
         }
         .header-bottom{
             .header__suptitle{
-                margin-top: 15px;
                 font-size: 16px;
             }
             .header__title{
                 font-size: 30px;
+                padding: 0 10px;
             }
             .header__subtitle{
                 font-size: 18px;
@@ -61,9 +111,14 @@
     .total{
         .total-title{
             font-size: 35px;
+            padding: 10px 10px 0 10px;
+        }
+        .total-subtitle{
+            padding: 0 10px;
         }
         .total-list{
             flex-direction: column;
+            margin-top: 0;
             .total-list__item{
                 width: auto;
                 height: auto;
@@ -75,6 +130,7 @@
     .result{
         .result-title{
             font-size: 24px;
+            padding: 0 10px;
         }
         .result-subtitle{
             font-size: 18px;
@@ -163,6 +219,9 @@
                     width: auto;
                 }
             }
+            .diploma__text{
+                padding: 0 10px;
+            }
         }
     }
     .clients{
@@ -230,6 +289,14 @@
                     text-align: center;
                 }
             }
+            .program__spoiler{
+                details {
+                ol li{
+                    padding: 0 10px;
+                    font-size: 12px;
+                }
+            }
+            }
         }
     }
     .certificate{
@@ -278,6 +345,7 @@
         .tabs__wrapper{
             .tabs__title{
                 font-size: 32px;
+                padding: 0 10px;
                 span{
                     font-size: 20px;
                 }
@@ -376,28 +444,48 @@
         .footer__wrapper{
             flex-direction: column;
             text-align: center;
-            .footer__block{
-                .footer-block__title{
-                    font-size: 14px;
-                    text-align: center;
-                    margin-bottom: 10px;
-                }
-                img{
-                    width: 50%;
-                    margin: 20px 0;
-                }
-                .footer-block__phone{
-                    text-align: center;
-                }
-                .footer-block__email{
-                    text-align: center;
-                }
-                .footer-block__media{
-                    text-align: center;
-                    .block-media__icon{
-                        text-align: center;
+            .footer-block__main{
+                .footer__menu{
+                    .menu{
+                        .menu-top{
+                            flex-direction: column;
+                            padding: 0;
+                            li a{
+                                padding: 0;
+                            }
+                        }
                     }
                 }
+                .footer__main{
+                    flex-direction: column;
+                    .footer__block{
+                        display: block;
+                        .footer-block__title{
+                            font-size: 14px;
+                            text-align: center;
+                            margin-bottom: 10px;
+                        }
+                        img{
+                            width: 100px;
+                            height: 100px;
+                            margin: 20px 0;
+                        }
+                        .footer-block__phone{
+                            text-align: center;
+                        }
+                        .footer-block__email{
+                            text-align: center;
+                        }
+                        .footer-block__media{
+                            text-align: center;
+                            .block-media__icon{
+                                text-align: center;
+                                margin-top: 0;
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                } 
             }
         }
     }

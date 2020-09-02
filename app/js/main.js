@@ -1,5 +1,5 @@
 $(function(){
-    
+    // слайдер
     $('.video-block__list').slick({
         slidesToShow: 3,
         slidesToScroll: 3,
@@ -13,6 +13,9 @@ $(function(){
             }
         }]
     });
+    // слайдер
+
+
     $(document).ready(function() {   
         $('a[name=modal]').click(function(e) {
         e.preventDefault();
@@ -38,14 +41,22 @@ $(function(){
         }); 
        });
        
+      //  Всплывающеи окна
        $('.open-popup-link').magnificPopup({
         type:'inline',
         midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
       });
-  
+      //  Всплывающеи окна
+
+      // Мобильное меню
+      $('.menu__burger').click(function(event){
+        $('.menu-top').toggleClass('active');
+        $('body').toggleClass('lock')
+      });
+      // Мобильное меню
 });
 
-
+// Табы 
 $(document).ready(function() {
   $('.tabs-triggers__item').click(function(e){
     e.preventDefault();
@@ -59,6 +70,7 @@ $(document).ready(function() {
   
   $('.tabs-triggers__item:first').click();
 });
+// Табы 
 
 lightbox.option({
   'resizeDuration': 200,
@@ -81,6 +93,7 @@ for (let anchor of anchors) {
   })
 }
 
+// адаптация загрузки видео с Youtube
 ( function() {
   var youtube = document.querySelectorAll( ".youtube" );
   for (var i = 0; i < youtube.length; i++) {
@@ -101,3 +114,17 @@ for (let anchor of anchors) {
               } );    
   };
 } )();
+// адаптация загрузки видео с Youtube
+
+//  липкое меню
+window.onscroll = function() {myFunction()};
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+//  липкое меню

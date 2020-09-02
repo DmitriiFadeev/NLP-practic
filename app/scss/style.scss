@@ -37,6 +37,9 @@ textarea {resize:horizontal;}
     width: 10%;
     margin-left: 10px;
 }
+
+//  общий класс для всех кнопок
+
 .btn{
     background-color: red;
     width: 350px;
@@ -52,6 +55,33 @@ textarea {resize:horizontal;}
     font-family: 'Roboto', sans-serif;
     margin-bottom: 50px;
 }
+//  общий класс для всех кнопок
+
+//  Добавляет класс прилипающего меню
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    width: 100%;
+    .menu-top{
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        height: 50px;
+        li a{
+            padding: 14px 10px;
+        }
+        li a:hover{
+            border-bottom: 3px solid red;
+            padding: 14px 10px;
+        }
+    }
+}
+//  Добавляет класс прилипающего меню
+
+
 header{
     height: auto;
     width: 100%;
@@ -62,19 +92,22 @@ header{
     z-index: 2;
     .header-top{
         display: flex;
-        height: 75px;
+        align-items: center;
+        .menu__burger{
+            display: none;
+        }
         .logo{
             margin-right: 50px;
             z-index: 3;
             margin-top: 10px;
         }
+        .menu {
+            z-index: 10;
+        }
         .menu ul {
             display: flex;
-            margin-top: 30px;
-            z-index: 555;
-            position: absolute;
-            z-index: 3;
             a{
+                display: block;
                 text-decoration: none;
                 color: #fff;
                 margin-right: 50px;
@@ -366,6 +399,7 @@ header::before{
             font-size: 40px;
             text-align: center;
             font-weight: 700;
+            padding: 0 10px;
         }
         .difference-subtitle{
             line-height: 1.6;
@@ -426,6 +460,9 @@ header::before{
             margin-top: 45px;
             display: flex;
             justify-content: center;
+            a{
+                text-decoration: none;
+            }
         }
     }
 }
@@ -534,6 +571,11 @@ header::before{
                     display: flex;
                     .trainer-item__img{
                         text-align: center;
+                        img{
+                            border-radius: 50%;
+                            width: 300px;
+                            height: 300px;
+                        }
                     }
                     .trainer-item__descr{
                         .trainer-descr__title{
@@ -576,7 +618,7 @@ header::before{
             font-weight: 700;
             padding-top: 50px;
         }
-        .porgram__subtitle{
+        .program__subtitle{
             font-size: 22px;
             text-align: center;
             color: black;
@@ -594,6 +636,7 @@ header::before{
             margin-top: 30px;
             background-color: #fff;
             display: flex;
+            justify-content: center;
             .program-block__img{
                 padding: 30px;
             }
@@ -672,6 +715,7 @@ header::before{
                 line-height: 1.4;
                 text-align: justify;
                 color: #fff;
+                padding: 0 5px;
             }
         }
     }
@@ -884,7 +928,7 @@ header::before{
 }
 .comment__video{
     height: auto;
-    background-color: blue;
+    background-color: rgb(54, 94, 225);
     margin-top: 30px;
     min-width: 0;
     .comment-video__wrapper{
@@ -905,7 +949,7 @@ header::before{
             padding-bottom: 50px;
             .video-block__list{
                 position: relative;
-                padding: 0 41px;
+                padding: 0 48px;
                 .slick-arrow{
                     position: absolute;
                     top: 50%;
@@ -918,11 +962,11 @@ header::before{
                 }
                 button.slick-prev{
                     left: 0;
-                    background: url('../img/arrow-left.svg') 0 0 / 100% no-repeat;
+                    background: url('/wp-content/themes/blankslate/img/arrow-left.svg') 0 0 / 100% no-repeat;
                 }
                 button.slick-next{
                     right: 0;
-                    background: url('../img/arrow-right.svg') 0 0 / 100% no-repeat;
+                    background: url('/wp-content/themes/blankslate/img/arrow-right.svg') 0 0 / 100% no-repeat;
                 }
                 .slick-dots {
                     display: flex;
@@ -976,45 +1020,68 @@ footer{
     height: auto;
     background-color: rgb(39, 40, 45);
     .footer__wrapper{
-        display: flex;
-        justify-content: space-between;
-        padding-top: 30px;
-        .footer__block{
-            .footer-block__title{
-                font-size: 14px;
-                line-height: 1.4;
-                color: #ccc;
-            }
-            img{
-                width: 100%;
-            }
-            .footer-block__phone{
-                text-align: right;
-                color: #fff;
-                font-family: 'Roboto', sans-serif;
-                font-size: 18px;
-            }
-            .footer-block__email{
-                color: rgb(25, 73, 230);
-                text-align: right;
-                font-size: 16px;
-                text-decoration: underline;
-                margin-top: 10px;
-            }
-            .footer-block__media{
-                margin-top: 10px;
-                color: #fff;
-                text-align: right;
-                .block-media__icon{
-                    margin-top: 10px;
-                    text-align: right;
-                    img{
-                        width: 40px;
-                        height: 40px;
-                        margin-left: 5px;
+        .footer-block__main{
+            display: flex;
+            flex-direction: column;
+            .footer__main{
+                display: flex;
+                justify-content: space-between;
+                margin-top: 20px;
+                .footer__block{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .footer-block__title{
+                        font-size: 14px;
+                        line-height: 1.4;
+                        color: #ccc;
+                    }
+                    .footer__logo{
+                        width: 150px;
+                        height: 150px;
+                        img{
+                            width: 100%;
+                        }
+                    }
+                    .footer-block__phone{
+                        text-align: right;
+                        color: #fff;
+                        font-family: 'Roboto', sans-serif;
+                        font-size: 18px;
+                    }
+                    .footer-block__email{
+                        color: rgb(25, 73, 230);
+                        text-align: right;
+                        font-size: 16px;
+                        text-decoration: underline;
+                        margin-top: 10px;
+                    }
+                    .footer-block__media{
+                        margin-top: 10px;
+                        color: #fff;
+                        text-align: right;
+                        .block-media__icon{
+                            margin-top: 10px;
+                            text-align: right;
+                            margin-bottom: 10px;
+                            img{
+                                width: 40px;
+                                height: 40px;
+                                margin-left: 5px;
+                            }
+                        }
                     }
                 }
             }
+        }
+    }
+    .footer-block__author{
+        display: flex;
+        justify-content: center;
+        background-color: rgb(39, 40, 45);;
+        height: auto;
+        a{
+            color: #fff;
         }
     }
 }
@@ -1032,49 +1099,45 @@ footer{
 .tabs-content__item--active{
     display: block;
 }
-
+//  форма обратной связи
 .white-popup {
     position: relative;
-    background: #FFF;
+    background: #fff;
     padding: 20px;
     width: auto;
-    max-width: 500px;
+    max-width: 400px;
     margin: 20px auto;
+    border: 5px solid rgb(54, 94, 225);
+    border-radius: 30px;
+    h2{
+        text-align: center;
+    }
+    p{
+        text-align: center;
+    }
+    .input{
+        width: 100%;
+        height: 50px;
+        margin-top: 10px;
+        border-radius: 10px;
+        border: none;
+        text-align: center;
+        border: 1px solid black;
+    }
   }
   #submit {
     font-family: sans-serif;
+    background-color:rgb(54, 94, 225);
     color: #ffffff;
     font-size: 18px;
-    padding: 0px;
+    padding: 5px;
     text-decoration: none;
-    box-shadow: 0px 1px 3px #666666;
-    -webkit-box-shadow: 0px 1px 3px #666666;
-    -moz-box-shadow: 0px 1px 3px #666666;
-    text-shadow: 1px 1px 3px #666666;
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#ce1515), to(#8b0d0d));
-    background: -moz-linear-gradient(top, #ce1515, #8b0d0d);
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 30px;
     }
-     
-    #submit:hover {
-     background: -webkit-gradient(linear, 0 0, 0 100%, from(#8b0d0d), to(#ce1515));
-     background: -moz-linear-gradient(top, #8b0d0d, #ce1515)
-    }
-    #respond input[type=text], textarea {
-     -webkit-transition: all 0.30s ease-in-out;
-     -moz-transition: all 0.30s ease-in-out;
-     -ms-transition: all 0.30s ease-in-out;
-     -o-transition: all 0.30s ease-in-out;
-     outline: none;
-     padding: 3px 0px 3px 3px;
-     margin: 5px 1px 3px 0px;
-     border: 1px solid #DDDDDD;
-    }
-    #respond input[type=text]:focus, textarea:focus {
-     box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-     margin: 5px 1px 3px 0px;
-     border: 1px solid rgba(81, 203, 238, 1);
-}
-
+//  форма обратной связи
 /* Lazyload iframe YOUtube */
 
 .youtube {
